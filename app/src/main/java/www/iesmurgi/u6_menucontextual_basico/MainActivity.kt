@@ -24,33 +24,14 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onCreateContextMenu(menu: ContextMenu, v: View,
-                                     menuInfo: ContextMenu.ContextMenuInfo) {
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?,
+                                     menuInfo: ContextMenu.ContextMenuInfo?) {
         super.onCreateContextMenu(menu, v, menuInfo)
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
-        return when (item.itemId) {
-            /*R.id.edit -> {
-                editNote(info.id)
-                true
-            }
-            R.id.delete -> {
-                deleteNote(info.id)
-                true
-            }*/
-            else -> super.onContextItemSelected(item)
-        }
-    }
-
-
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle item selection
-
         return when (item.itemId) {
             R.id.MnOp1 -> {
                 binding.lblOpcion.setText("Opcion A")
@@ -72,6 +53,46 @@ class MainActivity : AppCompatActivity() {
 
             R.id.SbOp2 -> {
                 binding.lblOpcion.setText("SubOpcion 2")
+                true
+            }
+
+            R.id.Op -> {
+                binding.lblOpcion.setText("Opcion Android")
+                true
+            }
+            else -> super.onContextItemSelected(item)
+        }
+    }
+
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.MnOp1 -> {
+                binding.lblOpcion.setText("Opcion A")
+                true
+            }
+            R.id.MnOp2 -> {
+                binding.lblOpcion.setText("Opcion B")
+                true
+            }
+            R.id.MnOp3 -> {
+                binding.lblOpcion.setText("Opcion C")
+                true
+            }
+
+            R.id.SbOp1 -> {
+                binding.lblOpcion.setText("SubOpcion 1")
+                true
+            }
+
+            R.id.SbOp2 -> {
+                binding.lblOpcion.setText("SubOpcion 2")
+                true
+            }
+
+            R.id.Op -> {
+                binding.lblOpcion.setText("Opcion Android")
                 true
             }
             else -> super.onOptionsItemSelected(item)
